@@ -26,6 +26,7 @@ body {
 
 ul {
     list-style: circle;
+    padding-right: 30px;
 }
 
 ul li {
@@ -34,10 +35,11 @@ ul li {
 
 ul li span {
     color: #15824B;
+    text-decoration: underline;
 }
 
 .file-upload {
-    width: 600px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
 }
