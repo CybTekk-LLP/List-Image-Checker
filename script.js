@@ -5,6 +5,9 @@ function readURL(input) {
       $("#list-image").attr("src", e.target.result);
       $("li").css({ "list-style-image": `url(${e.target.result})` });
       $(".file-upload-image").attr("src", e.target.result);
+      document
+        .querySelector(".image-upload-wrap")
+        .classList.remove("image-dropping");
     };
     reader.readAsDataURL(input.files[0]);
   }
@@ -21,7 +24,7 @@ $(document).on("dragover", function (e) {
   ) {
     document
       .querySelector(".image-upload-wrap")
-      .classList.add(".image-dropping");
+      .classList.add("image-dropping");
     window.clearTimeout(dragTimer);
   }
 });
@@ -29,6 +32,6 @@ $(document).on("dragleave", function (e) {
   dragTimer = window.setTimeout(function () {
     document
       .querySelector(".image-upload-wrap")
-      .classList.remove(".image-dropping");
+      .classList.remove("image-dropping");
   }, 25);
 });

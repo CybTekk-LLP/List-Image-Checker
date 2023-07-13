@@ -50,7 +50,6 @@ ul li span {
     border: none;
     padding: 10px;
     border-radius: 10px;
-    border-bottom: 4px solid #15824B;
     transition: all .2s ease;
     outline: none;
     text-transform: uppercase;
@@ -94,10 +93,11 @@ ul li span {
     border: 4px dashed transparent;
     position: absolute;
     cursor: default;
+    display: none;
 }
 
-.image-dropping,
-.image-upload-wrap:hover {
+.image-dropping {
+    display: block;
     background-color: rgba(31, 178, 100, 0.1);
     border: 4px dashed var(--white);
     -webkit-backdrop-filter: blur(10px);
@@ -120,7 +120,7 @@ ul li span {
     color: transparent;
 }
 
-.image-upload-wrap:hover .drag-text {
+.image-dropping .drag-text {
     color: #15824B;
 }
 
