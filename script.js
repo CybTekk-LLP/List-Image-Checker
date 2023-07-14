@@ -55,36 +55,45 @@ function adjustIcons(iconHeight) {
   );
   // console.log(`${-iconHeight / 2 + fontSizeOfList / 4}px`);
   codeOutput(
-    `${-iconHeight / 2 + fontSizeOfList / 4}px`,
+    `${-iconHeight / 2 + fontSizeOfList / 4}`,
     iconHeight,
-    fontSizeOfList
+    fontSizeOfList,
+    0
   );
 }
 
 let up = document.querySelector(".up");
 let down = document.querySelector(".down");
 let iconImage = document.getElementById("list-image");
-let algorithm = document.querySelector(".codeYouNeed");
+let count = 0;
 
 up.addEventListener("click", () => {
   adjuster.forEach(
     (icon) => (icon.style.top = parseInt(icon.style.top) - 1 + "px")
   );
-  codeOutput(parseInt(adjuster[0].style.top), iconImage.height, fontSizeOfList);
+  count -= 1;
+  codeOutput(
+    parseInt(adjuster[0].style.top),
+    iconImage.height,
+    fontSizeOfList,
+    count
+  );
 });
 down.addEventListener("click", () => {
   adjuster.forEach(
     (icon) => (icon.style.top = parseInt(icon.style.top) + 1 + "px")
   );
-  codeOutput(parseInt(adjuster[0].style.top), iconImage.height, fontSizeOfList);
+  count += 1;
+  codeOutput(
+    parseInt(adjuster[0].style.top),
+    iconImage.height,
+    fontSizeOfList,
+    count
+  );
 });
 
-function codeOutput(topValue, iconHeight, fontSizeOfList) {
+function codeOutput(topValue, iconHeight, fontSizeOfList = 16, count) {
   console.log(
-    `The algorithm is: ${fontSizeOfList}/4 - ${iconHeight}/2 = ${
-      -iconHeight / 2 + fontSizeOfList / 4
-    }px`
+    `The algorithm is: ${fontSizeOfList}/4 - ${iconHeight}/2 + (${count}) = ${topValue}px`
   );
-
-  algorithm.setAttribute("style", `top:${topValue}; position:relative;`);
 }
