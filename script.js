@@ -45,16 +45,37 @@ $(document).on("dragleave", function (e) {
 
 let adjuster = document.querySelectorAll(".adjuster");
 
-function adjustIcons(imgHeight) {
+function adjustIcons(iconHeight) {
   let el = document.querySelector("li");
-  let fontSize = parseFloat(
+  let fontSizeOfList = parseFloat(
     window.getComputedStyle(el, null).getPropertyValue("font-size")
   );
   adjuster.forEach(
-    (icon) => (icon.style.top = `${-imgHeight / 2 + fontSize / 4}px`)
+    (icon) => (icon.style.top = `${-iconHeight / 2 + fontSizeOfList / 4}px`)
   );
-  console.log(`${-imgHeight / 2 + fontSize / 4}px`);
+  console.log(`${-iconHeight / 2 + fontSizeOfList / 4}px`);
+  codeOutput(`${-iconHeight / 2 + fontSizeOfList / 4}px`);
 }
 
 let up = document.querySelector(".up");
 let down = document.querySelector(".down");
+let fontSizeOfList = document.querySelector(".font-size");
+
+up.addEventListener("click", () => {
+  adjuster.forEach(
+    (icon) => (icon.style.top = parseInt(icon.style.top) - 1 + "px")
+  );
+  codeOutput(adjuster[0].style.top);
+});
+down.addEventListener("click", () => {
+  adjuster.forEach(
+    (icon) => (icon.style.top = parseInt(icon.style.top) + 1 + "px")
+  );
+  codeOutput(adjuster[0].style.top);
+});
+
+function codeOutput(topValue) {
+  document
+    .querySelector(".codeYouNeed")
+    .setAttribute("style", `top:${topValue}; position:relative;`);
+}
