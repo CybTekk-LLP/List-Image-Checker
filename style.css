@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap');
 
 :root {
     --white: #fafffd;
@@ -36,7 +37,8 @@ body {
 }
 
 img,
-button {
+button,
+section {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -205,4 +207,36 @@ button:focus {
 input[type="text"]::placeholder {
     color: var(--white);
     opacity: 0.5;
+}
+
+.codeSnippetOutput {
+    display: flex;
+    font-family: 'Source Code Pro', monospace;
+    width: 700px;
+    max-width: 100vw;
+    background-color: #282A36;
+    padding: 40px 10px 20px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.151), 0 8px 16px -8px rgba(0, 0, 0, 0.132), 0 -6px 16px -6px rgba(0, 0, 0, 0.031);
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.codeSnippetOutput div {
+    width: 98%;
+}
+
+.codeSnippetOutput .color1 {
+    color: #BD93F9;
+}
+
+.codeSnippetOutput .color2 {
+    color: #45F072;
+}
+
+.codeSnippetOutput .color3 {
+    color: #FF79C6
 }
