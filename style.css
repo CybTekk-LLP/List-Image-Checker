@@ -113,6 +113,7 @@ ul li span {
 
 .drag-text {
     height: 100vh;
+    font-size: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
