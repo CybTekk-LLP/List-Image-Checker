@@ -3,12 +3,18 @@ function readURL(input) {
     let reader = new FileReader();
     reader.onload = function (e) {
       let listIcon = e.target.result;
+      let image = new Image();
+      image.src = listIcon;
+      image.onload = function () {
+        adjustIcons(this.height);
+      };
       document.getElementById("list-image").src = listIcon;
-      $("li").css({ "list-style-image": `url(${e.target.result})` });
+      document.getElementById(
+        "myList"
+      ).style.listStyleImage = `url(${e.target.result})`;
       document
         .querySelector(".image-upload-wrap")
         .classList.remove("image-dropping");
-      adjustIcons();
     };
     reader.readAsDataURL(input.files[0]);
   }
@@ -39,8 +45,7 @@ $(document).on("dragleave", function (e) {
 
 let adjuster = document.querySelectorAll(".adjuster");
 
-function adjustIcons() {
-  let imgHeight = document.getElementById("list-image").height;
+function adjustIcons(imgHeight) {
   let el = document.querySelector("li");
   let fontSize = parseFloat(
     window.getComputedStyle(el, null).getPropertyValue("font-size")
@@ -48,5 +53,5 @@ function adjustIcons() {
   adjuster.forEach(
     (icon) => (icon.style.top = `${-imgHeight / 2 + fontSize / 4}px`)
   );
-  alert(`${-imgHeight / 2 + fontSize / 4}px`);
+  console.log(`${-imgHeight / 2 + fontSize / 4}px`);
 }
