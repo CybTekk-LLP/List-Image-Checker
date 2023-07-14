@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List image style</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module"
+        src="https://unpkg.com/@deckdeckgo/highlight-code@latest/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"></script>
+
 </head>
 
 <body>
@@ -20,12 +23,22 @@
                 developers can effortlessly align list icons.</span></li>
         <li><span class="adjuster" style="top:0; position:relative;">To use this web app, simply drag and drop the
                 svg/image to <span class="highlight">anywhere</span> in the screen.</span></li>
-        <li><span class="adjuster" style="top:0; position:relative;">Alternatively, use the <span
-                    class="highlight">upload image</span>
-                button, to get list style icons.</span></li>
         <li><span class="adjuster" style="top:0; position:relative;">Ideal list image size will be
                 <span class="highlight">calculated</span> and told to you through this webapp.</span></li>
     </ul>
+    <div class="controls">
+        <button class="up">&#10148;</button> <button class="down">&#10148;</button>
+    </div>
+
+    <!-- Code Snipped Start -->
+    <deckgo-highlight-code language="html">
+        <code slot="code">
+<li class="yourIconOnLeft"><span class="codeYouNeed" style="top:0; position:relative;">
+    You can copy the generated code from here.</span></li>
+        </code>
+    </deckgo-highlight-code>
+    <!-- Code Snippet End -->
+
     <section class="file-upload">
         <button class="file-upload-btn" type="button"
             onclick="document.querySelector('.file-upload-input').click()">Upload

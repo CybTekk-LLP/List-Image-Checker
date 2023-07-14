@@ -55,3 +55,6 @@ function adjustIcons(imgHeight) {
   );
   console.log(`${-imgHeight / 2 + fontSize / 4}px`);
 }
+
+let up = document.querySelector(".up");
+let down = document.querySelector(".down");
