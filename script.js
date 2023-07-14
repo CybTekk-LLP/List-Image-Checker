@@ -44,38 +44,47 @@ $(document).on("dragleave", function (e) {
 });
 
 let adjuster = document.querySelectorAll(".adjuster");
-
+let fontSizeOfList;
 function adjustIcons(iconHeight) {
   let el = document.querySelector("li");
-  let fontSizeOfList = parseFloat(
+  fontSizeOfList = parseFloat(
     window.getComputedStyle(el, null).getPropertyValue("font-size")
   );
   adjuster.forEach(
     (icon) => (icon.style.top = `${-iconHeight / 2 + fontSizeOfList / 4}px`)
   );
-  console.log(`${-iconHeight / 2 + fontSizeOfList / 4}px`);
-  codeOutput(`${-iconHeight / 2 + fontSizeOfList / 4}px`);
+  // console.log(`${-iconHeight / 2 + fontSizeOfList / 4}px`);
+  codeOutput(
+    `${-iconHeight / 2 + fontSizeOfList / 4}px`,
+    iconHeight,
+    fontSizeOfList
+  );
 }
 
 let up = document.querySelector(".up");
 let down = document.querySelector(".down");
-let fontSizeOfList = document.querySelector(".font-size");
+let iconImage = document.getElementById("list-image");
+let algorithm = document.querySelector(".codeYouNeed");
 
 up.addEventListener("click", () => {
   adjuster.forEach(
     (icon) => (icon.style.top = parseInt(icon.style.top) - 1 + "px")
   );
-  codeOutput(adjuster[0].style.top);
+  codeOutput(parseInt(adjuster[0].style.top), iconImage.height, fontSizeOfList);
 });
 down.addEventListener("click", () => {
   adjuster.forEach(
     (icon) => (icon.style.top = parseInt(icon.style.top) + 1 + "px")
   );
-  codeOutput(adjuster[0].style.top);
+  codeOutput(parseInt(adjuster[0].style.top), iconImage.height, fontSizeOfList);
 });
 
-function codeOutput(topValue) {
-  document
-    .querySelector(".codeYouNeed")
-    .setAttribute("style", `top:${topValue}; position:relative;`);
+function codeOutput(topValue, iconHeight, fontSizeOfList) {
+  console.log(
+    `The algorithm is: ${fontSizeOfList}/4 - ${iconHeight}/2 = ${
+      -iconHeight / 2 + fontSizeOfList / 4
+    }px`
+  );
+
+  algorithm.setAttribute("style", `top:${topValue}; position:relative;`);
 }
