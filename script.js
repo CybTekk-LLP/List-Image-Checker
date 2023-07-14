@@ -101,8 +101,8 @@ fontSizeInput.addEventListener("input", () => {
 
 function codeOutput(topValue, iconHeight, fontSizeOfList = 16, count) {
   console.log(
-    `The algorithm is: ${fontSizeOfList}/4 - ${iconHeight}/2 + (${count}) = ${topValue}px`
+    `The algorithm is: ${fontSizeOfList}/4 [fontsize/4] - ${iconHeight}/2 [listicon/2] + (${count}) [±error] = ${topValue}px`
   );
-  algorithm.textContent = `The algorithm is: ${fontSizeOfList}/4 - ${iconHeight}/2 + (${count}) = ${topValue}px`;
+  algorithm.textContent = `The algorithm is: ${fontSizeOfList}/4 [fontsize/4] - ${iconHeight}/2 [listicon/2] + (${count}) [±error] = ${topValue}px`;
   algorithm.setAttribute("style", `top:${topValue}; position:relative;`);
 }

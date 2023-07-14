@@ -31,9 +31,10 @@
                 <span class="highlight">calculated</span> and told to you through this webapp.</span></li>
     </ul>
     <div class="controls">
-        Move Text Up<button class="up">&#10148;</button> <button class="down">&#10148;</button>Move Text Down
+        Move Text Up<button class="up" tabindex="0">&#10148;</button> <button class="down"
+            tabindex="0">&#10148;</button>Move Text Down
         <br> <label for="font-size">Change font size (in pixels):&nbsp; </label><input type="text" placeholder="16"
-            id="font-size">
+            id="font-size" tabindex="0">
     </div>
 
     <!-- Code Snipped Start -->
@@ -51,7 +52,7 @@
     <!-- Code Snippet End -->
 
     <section class="file-upload">
-        <button class="file-upload-btn" type="button"
+        <button class="file-upload-btn" type="button" tabindex="0"
             onclick="document.querySelector('.file-upload-input').click()">Upload
             An Image</button>
         <div class="image-upload-wrap" tabindex="0">
@@ -63,5 +64,6 @@
     </section>
 </body>
 <script src="script.js"></script>
+<script src="input-filter.js"></script>
 
 </html>
