@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List image style</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module"
+        src="https://unpkg.com/@deckdeckgo/highlight-code@latest/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"></script>
+
+    <template id="template">
+        <li class="yourIconOnLeft"><span class="codeYouNeed" style="top:0; position:relative;">
+                You can copy the generated code from here.</span></li>
+    </template>
 </head>
 
 <body>
@@ -25,13 +32,22 @@
     </ul>
     <div class="controls">
         Move Text Up<button class="up">&#10148;</button> <button class="down">&#10148;</button>Move Text Down
+        <br> <label for="font-size">Change font size (in pixels):&nbsp; </label><input type="text" placeholder="16"
+            id="font-size">
     </div>
 
     <!-- Code Snipped Start -->
+    <deckgo-highlight-code language="html">
+        <code slot="code">
+<li class="yourIconOnLeft"><span class="codeYouNeed" style="top:0; position:relative;">
+    You can copy the generated code from here.</span></li>
+        </code>
+    </deckgo-highlight-code>
 
-    <p class="yourIconOnLeft"><span class="codeYouNeed" style="top:0; position:relative;">
-            You can copy the generated code from here.</span></p>
-
+    <div>
+        <li class="yourIconOnLeft"><span class="codeYouNeed" style="top:0; position:relative;">
+                You can copy the generated code from here.</span></li>
+    </div>
     <!-- Code Snippet End -->
 
     <section class="file-upload">

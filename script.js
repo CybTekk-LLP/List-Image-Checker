@@ -45,11 +45,18 @@ $(document).on("dragleave", function (e) {
 
 let adjuster = document.querySelectorAll(".adjuster");
 let fontSizeOfList;
+let up = document.querySelector(".up");
+let down = document.querySelector(".down");
+let iconImage = document.getElementById("list-image");
+let algorithm = document.querySelector(".codeYouNeed");
+let count = 0;
+let fontSizeInput = document.getElementById("font-size");
+
 function adjustIcons(iconHeight) {
   let el = document.querySelector("li");
-  fontSizeOfList = parseFloat(
-    window.getComputedStyle(el, null).getPropertyValue("font-size")
-  );
+  fontSizeOfList =
+    fontSizeInput.value ||
+    parseFloat(window.getComputedStyle(el, null).getPropertyValue("font-size"));
   adjuster.forEach(
     (icon) => (icon.style.top = `${-iconHeight / 2 + fontSizeOfList / 4}px`)
   );
@@ -61,12 +68,6 @@ function adjustIcons(iconHeight) {
     0
   );
 }
-
-let up = document.querySelector(".up");
-let down = document.querySelector(".down");
-let iconImage = document.getElementById("list-image");
-let algorithm = document.querySelector(".codeYouNeed");
-let count = 0;
 
 up.addEventListener("click", () => {
   adjuster.forEach(
@@ -91,6 +92,11 @@ down.addEventListener("click", () => {
     fontSizeOfList,
     count
   );
+});
+fontSizeInput.addEventListener("input", () => {
+  fontSizeOfList = fontSizeInput.value || "16";
+  adjuster.forEach((icon) => (icon.style.fontSize = fontSizeOfList + "px"));
+  adjustIcons(iconImage.height);
 });
 
 function codeOutput(topValue, iconHeight, fontSizeOfList = 16, count) {

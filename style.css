@@ -183,3 +183,25 @@ ul li span.highlight {
 .up {
     transform: rotate(-90deg) scale(0.6);
 }
+
+input[type="text"] {
+    background-color: #15824B;
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px 0;
+    outline: none;
+    width: 40px;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 0 2px rgba(31, 178, 100, 0.4);
+    transition: .1s;
+}
+
+input[type="text"]::placeholder {
+    color: var(--white);
+    opacity: 0.5;
+}
