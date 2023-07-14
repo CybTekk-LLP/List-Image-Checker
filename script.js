@@ -1,21 +1,22 @@
 function readURL(input) {
   if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = function (e) {
-      $("#list-image").attr("src", e.target.result);
+      let listIcon = e.target.result;
+      document.getElementById("list-image").src = listIcon;
       $("li").css({ "list-style-image": `url(${e.target.result})` });
-      $(".file-upload-image").attr("src", e.target.result);
       document
         .querySelector(".image-upload-wrap")
         .classList.remove("image-dropping");
+      adjustIcons();
     };
     reader.readAsDataURL(input.files[0]);
   }
 }
 
-var dragTimer;
+let dragTimer;
 $(document).on("dragover", function (e) {
-  var dt = e.originalEvent.dataTransfer;
+  let dt = e.originalEvent.dataTransfer;
   if (
     dt.types &&
     (dt.types.indexOf
@@ -35,3 +36,17 @@ $(document).on("dragleave", function (e) {
       .classList.remove("image-dropping");
   }, 25);
 });
+
+let adjuster = document.querySelectorAll(".adjuster");
+
+function adjustIcons() {
+  let imgHeight = document.getElementById("list-image").height;
+  let el = document.querySelector("li");
+  let fontSize = parseFloat(
+    window.getComputedStyle(el, null).getPropertyValue("font-size")
+  );
+  adjuster.forEach(
+    (icon) => (icon.style.top = `${-imgHeight / 2 + fontSize / 4}px`)
+  );
+  alert(`${-imgHeight / 2 + fontSize / 4}px`);
+}

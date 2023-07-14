@@ -51,7 +51,7 @@ ul li {
     text-align: left;
 }
 
-ul li span {
+ul li span.highlight {
     color: #15824B;
     text-decoration: underline;
 }
@@ -151,3 +151,5 @@ ul li span {
     margin: auto;
     padding: 20px;
 }
+
+#list-image {}
