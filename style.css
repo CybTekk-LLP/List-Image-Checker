@@ -123,7 +123,7 @@ ul li span {
 }
 
 .image-dropping .drag-text {
-    color: #15824B;
+    color: var(--white);
 }
 
 .file-upload-image {
