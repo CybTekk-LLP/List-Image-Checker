@@ -65,6 +65,7 @@ function adjustIcons(iconHeight) {
 let up = document.querySelector(".up");
 let down = document.querySelector(".down");
 let iconImage = document.getElementById("list-image");
+let algorithm = document.querySelector(".codeYouNeed");
 let count = 0;
 
 up.addEventListener("click", () => {
@@ -96,4 +97,6 @@ function codeOutput(topValue, iconHeight, fontSizeOfList = 16, count) {
   console.log(
     `The algorithm is: ${fontSizeOfList}/4 - ${iconHeight}/2 + (${count}) = ${topValue}px`
   );
+  algorithm.textContent = `The algorithm is: ${fontSizeOfList}/4 - ${iconHeight}/2 + (${count}) = ${topValue}px`;
+  algorithm.setAttribute("style", `top:${topValue}; position:relative;`);
 }
