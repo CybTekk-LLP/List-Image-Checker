@@ -21,7 +21,7 @@ function readURL(input) {
 }
 
 let dragTimer;
-$(document).on("dragover", function (e) {
+$(document).on("dragstart", function (e) {
   let dt = e.originalEvent.dataTransfer;
   if (
     dt.types &&
@@ -35,7 +35,11 @@ $(document).on("dragover", function (e) {
     window.clearTimeout(dragTimer);
   }
 });
+$(document).on("dragover", function (e) {
+  e.preventDefault();
+});
 $(document).on("dragleave", function (e) {
+  e.preventDefault();
   dragTimer = window.setTimeout(function () {
     document
       .querySelector(".image-upload-wrap")
