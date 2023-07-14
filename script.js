@@ -21,8 +21,13 @@ function readURL(input) {
 }
 
 let dragTimer;
-$(document).on("dragover", function (e) {
-  let dt = e.originalEvent.dataTransfer;
+document.addEventListener("dragstart", function (e) {
+  e.dataTransfer.setData("image", e.target.id);
+});
+
+document.addEventListener("dragover", function (e) {
+  e.preventDefault();
+  let dt = e.dataTransfer;
   if (
     dt.types &&
     (dt.types.indexOf
@@ -35,14 +40,15 @@ $(document).on("dragover", function (e) {
     window.clearTimeout(dragTimer);
   }
 });
-$(document).on("dragleave", function (e) {
+
+document.addEventListener("dragleave", function (e) {
+  e.preventDefault();
   dragTimer = window.setTimeout(function () {
     document
       .querySelector(".image-upload-wrap")
       .classList.remove("image-dropping");
   }, 25);
 });
-
 let adjuster = document.querySelectorAll(".adjuster");
 let fontSizeOfList;
 let up = document.querySelector(".up");
