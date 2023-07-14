@@ -48,7 +48,7 @@ let fontSizeOfList;
 let up = document.querySelector(".up");
 let down = document.querySelector(".down");
 let iconImage = document.getElementById("list-image");
-let algorithm = document.querySelector(".codeYouNeed");
+let algorithm = document.querySelector(".algorithm");
 let count = 0;
 let fontSizeInput = document.getElementById("font-size");
 
@@ -104,5 +104,7 @@ function codeOutput(topValue, iconHeight, fontSizeOfList = 16, count) {
     `The algorithm is: ${fontSizeOfList}/4 [fontsize/4] - ${iconHeight}/2 [listicon/2] + (${count}) [±error] = ${topValue}px`
   );
   algorithm.textContent = `The algorithm is: ${fontSizeOfList}/4 [fontsize/4] - ${iconHeight}/2 [listicon/2] + (${count}) [±error] = ${topValue}px`;
-  algorithm.setAttribute("style", `top:${topValue}; position:relative;`);
+  document.querySelectorAll(
+    ".color3"
+  )[2].textContent = `top:${topValue}px; position:relative`;
 }
