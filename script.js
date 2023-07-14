@@ -35,13 +35,15 @@ $(document).on("dragover", function (e) {
     window.clearTimeout(dragTimer);
   }
 });
-$(document).on("dragleave", function (e) {
-  dragTimer = window.setTimeout(function () {
-    document
-      .querySelector(".image-upload-wrap")
-      .classList.remove("image-dropping");
-  }, 25);
-});
+document
+  .querySelector(".image-upload-wrap")
+  .addEventListener("dragleave", function (e) {
+    dragTimer = window.setTimeout(function () {
+      document
+        .querySelector(".image-upload-wrap")
+        .classList.remove("image-dropping");
+    }, 25);
+  });
 
 let adjuster = document.querySelectorAll(".adjuster");
 let fontSizeOfList;
