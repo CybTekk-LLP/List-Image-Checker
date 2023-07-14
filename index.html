@@ -18,6 +18,8 @@
 <body>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <img src="./Cybtekk.svg" alt="CybTEKK" width="200px" height="120px">
+
+    <!-- Preview of list style icons -->
     <ul id="myList">
         <li><span class="adjuster" style="top:0; position:relative;">This is an incredible design tool for creating the
                 best
@@ -30,6 +32,8 @@
         <li><span class="adjuster" style="top:0; position:relative;">Ideal list image size will be
                 <span class="highlight">calculated</span> and told to you through this webapp.</span></li>
     </ul>
+
+    <!-- List image controls setup -->
     <div class="controls">
         Move Text Up<button class="up" tabindex="0">&#10148;</button> <button class="down"
             tabindex="0">&#10148;</button>Move Text Down
@@ -45,12 +49,13 @@
         </code>
     </deckgo-highlight-code>
 
-    <div>
+    <div class="codeSnippetOutput">
         <li class="yourIconOnLeft"><span class="codeYouNeed" style="top:0; position:relative;">
                 You can copy the generated code from here.</span></li>
     </div>
     <!-- Code Snippet End -->
 
+    <!-- File Upload and Display Logic -->
     <section class="file-upload">
         <button class="file-upload-btn" type="button" tabindex="0"
             onclick="document.querySelector('.file-upload-input').click()">Upload
@@ -62,8 +67,11 @@
         <p class="highlight">Current List image looks like this</p>
         <img id="list-image" src="./BulletPoints/question-mark.png" alt="uploaded image" />
     </section>
+
+
 </body>
 <script src="script.js"></script>
 <script src="input-filter.js"></script>
+<script src="key-binding.js"></script>
 
 </html>
