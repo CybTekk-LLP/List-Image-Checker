@@ -107,6 +107,7 @@ fontSizeInput.addEventListener("input", () => {
 
 function codeOutput(topValue, iconHeight, fontSizeOfList = 16, count) {
   document.querySelector(".tick").style.display = "none";
+  document.querySelector(".clipboard").classList.remove("clipboard2");
   console.log(
     `The algorithm is: ${fontSizeOfList}/4 [fontsize/4] - ${iconHeight}/2 [listicon/2] + (${count}) [±error] = ${topValue}px`
   );

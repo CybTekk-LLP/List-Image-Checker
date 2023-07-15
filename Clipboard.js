@@ -1,9 +1,11 @@
 document.querySelector(".clipboard").addEventListener("click", () => {
-  let range = document.createRange();
   document.querySelector(".tick").style.display = "block";
-  range.selectNode(document.getElementById(".snippet"));
-  window.getSelection().removeAllRanges(); // clear current selection
-  window.getSelection().addRange(range); // to select text
-  document.designMode = "on";
-  window.getSelection().removeAllRanges(); // to deselect
+  let copyText = `<li class="yourIconOnLeft"><span class="codeYouNeed" style="${
+    document.querySelectorAll(".color3")[2].textContent
+  }">${document.querySelector(".algorithm").textContent}</span></li>`;
+  navigator.clipboard.writeText(copyText);
+  document.querySelector(".clipboard").classList.add("clipboard2");
+  setTimeout(() => {
+    document.querySelector(".clipboard").classList.remove("clipboard2");
+  }, 3000);
 });

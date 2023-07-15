@@ -287,3 +287,25 @@ input[type="text"]::placeholder {
     padding: 0 2px;
     display: none;
 }
+
+.clipboard2:before {
+    content: "Copied";
+    position: absolute;
+    top: -35px;
+    right: 0px;
+    background: #15824B;
+    padding: 8px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.clipboard2:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    background: #15824B;
+    transform: rotate(45deg);
+}
